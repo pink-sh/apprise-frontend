@@ -1,0 +1,856 @@
+
+@import '../../variables.scss';
+
+
+.slideout {
+
+    .page-topbar-tabs {
+    
+        display: flex;
+       
+        .action-group {
+          margin-left:auto    // aligns self to right
+          
+        }
+
+        button {
+            font-size:small
+        }
+
+        
+        
+
+    }
+
+    // slimmer forms inside slideouts
+    .page-form {
+
+        .form-toc {
+
+            // more compact toc
+            margin-right:15px;
+            padding-right:15px;
+
+            // if toc is available, everything is narrower, give sidebar more breathing space.
+            & + .ant-form {
+
+               .form-row {
+        
+                    .row-field {
+                        min-width: 65%;
+                    }
+        
+                    .row-side {
+                        min-width: 35%;
+                        padding-left:15px;
+                        padding-right:15px;
+                    }
+                }
+            }
+
+        }
+
+        .ant-form {
+        
+            min-width: 500px;
+            padding-left: 0px;
+
+            .form-row {
+
+                .row-field {
+                    min-width: 65%;
+                }
+
+                .row-side {
+                    padding-left:20px;
+                    min-width: 35%;
+                }
+            }
+
+        }
+
+    }
+    
+
+    .form-to {
+        margin-right:15px;
+        max-width: 10%;
+    }
+    
+
+
+}
+
+.page-form {
+
+    display: flex;
+    padding-top: 30px;
+    
+
+    .form-toc {
+    
+        flex-grow:1;
+        padding-top:20px;
+        padding-right:30px;
+        min-width: 150px;
+        max-width: 20%;     
+        margin-right:30px;
+        border-right: 1px solid $gray-1;
+
+        .ant-anchor-wrapper {
+
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .ant-anchor-link {
+            
+            font-size: small;
+
+            a {color: $gray-2}
+        }
+
+       
+    }
+
+    // form when toc is present
+    .form-toc + .ant-form {
+
+        max-width: 80%;
+        padding-left: 0px;
+       
+
+        .form-row {
+
+
+            .row-field {
+                min-width: 70%;
+            }
+
+            .row-side {
+                min-width: 30%;
+            }
+        }
+    }
+    
+    
+    .ant-form {
+        
+       min-width: 700px;
+       width:100%;
+       padding-left: 30px;
+        
+        .form-group {
+
+            display:flex;
+            align-items:center
+        }
+
+        .form-row {
+
+            display: flex;
+            
+            
+             
+            .row-field {
+
+                flex-grow: 2;    // grows to fill unless otherwise constrained (e.g. when sidebar is not used).
+                
+                min-width: 75%; //  complemented by min-width of sidebar! 
+               
+                .ant-select-selection__clear {
+                    color:$gray-2;
+                    font-size: 14px;
+                }
+      
+            }
+
+            .row-side {
+
+                flex-grow: 1;
+                min-width:25%;      // or rows with empty sidebar will grow larger than those with content in sidebar. 
+                padding-top: 15px;
+                padding-left: 30px;
+                padding-right: 20px;
+   
+                font-size: smaller;
+                color:$gray-2 ;
+               
+                .ant-typography {
+                    color:$gray-2 ; 
+                } 
+
+                &:hover {
+                    
+                    color:$gray-3;
+
+                    .ant-typography {
+                        color:$gray-3;
+                    }
+
+
+                }
+             
+            }
+        }
+
+        .ant-form-item-label {
+
+            line-height:20px;
+            padding-bottom:2px;
+        
+            label { 
+                font-size:small;
+                color:$gray-2
+            }
+        }
+
+        .ant-divider-inner-text {
+            
+            font-weight: 200;
+            color: $gray-2;
+            font-variant: small-caps;
+        }
+
+        .ant-form-explain {
+
+            margin: 3px;
+            font-size:smaller;
+            line-height:20px;
+
+            .ant-typography {
+                color: $gray-2 !important;           
+            }
+
+            .ant-typography.ant-typography-danger {
+                color: $error-color !important;           
+            }
+            
+        }
+    
+    }
+
+  
+
+    .multibox {
+
+        .ant-form-item-control {
+
+            line-height: 35px;
+
+            .ant-input-group-addon {
+                min-width:40px;
+                background:$gray-blue;
+            }
+
+        }
+
+        .textarea {
+
+            display: flex;
+            margin-top:3px;
+  
+            .textbox-addonbefore-container {
+                
+                background-color: $gray-blue;
+                border: 1px solid #d9d9d9;
+                border-bottom-left-radius: 4px;
+                padding-right: 0px;
+                min-width: 40px;
+                max-width: 40px;
+
+                .textbox-addonbefore{
+                    display: flex;
+                    height: 100%;
+                    justify-content: center;
+                    align-items: flex-start;
+                    line-height: 30px;
+                }
+            }
+            .textbox-suffix-container {
+                margin-top: 4px;
+                z-index: 2;
+                position: absolute;
+                right: 12px;
+                .textbox-suffix {
+                    justify-content: center;
+                    align-items: center;
+                    display: flex;
+                    margin-left: 1px;   
+                }
+                .textbox-suffix-button {
+                    border: 0;
+                    z-index: 2;
+                }
+            }
+            .textbox-no-border-radius {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+        }
+
+        .rte {
+
+            display: flex;
+            margin-top:3px;
+  
+            .textbox-addonbefore-container {
+                
+                background-color: $gray-blue;
+                border-top: 1px solid #d9d9d9;
+                border-left: 1px solid #d9d9d9;
+                border-bottom: 1px solid #d9d9d9;
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+                padding-right: 0px;
+                min-width: 40px;
+                max-width: 40px;
+
+                .textbox-addonbefore{
+                    display: flex;
+                    height: 100%;
+                    justify-content: center;
+                    align-items: flex-start;
+                    line-height: 30px;
+                }
+            }
+            .textbox-suffix-container {
+                z-index: 2;
+                position: absolute;
+                right: 12px;
+                top: 4px;
+                .textbox-suffix {
+                    justify-content: center;
+                    align-items: center;
+                    display: flex;
+                    margin-left: 1px;   
+                }
+                .textbox-suffix-button {
+                    border: 0;
+                    z-index: 2;
+                    color: #000000 !important;
+                }
+            }
+            .textbox-no-border-radius {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+            .ql-toolbar {
+                border-top-left-radius: 0;
+            }
+            .ql-container {
+                border-bottom-right-radius: 4px;
+                border-bottom-left-radius: 0;
+            }
+        }
+
+
+        .language-choice {
+
+            text-align: right;
+            display: block;
+            line-height: 30px;
+    
+
+            .ant-btn {
+                font-size: smaller;
+                
+                i {
+                    padding-right:5px
+                }
+            }
+   
+        }
+
+        &.with-language-choice {
+
+            .ant-form-explain {
+                margin-top:-23px;
+                margin-bottom:30px;
+            }
+    
+        }
+
+
+        .ant-input-suffix {
+                
+            button {
+                border:0px;
+                color: $gray-2;
+                padding-right: 0px;
+            }
+            
+        }
+
+
+       
+    }
+
+
+    
+
+    .ql-toolbar {
+        border-top-left-radius:4px;
+        border-top-right-radius:4px;
+        border-bottom: 0 !important;
+        padding-top: 2px !important;
+        padding-bottom: 2px !important;
+    }
+    .ql-toolbar svg {
+        height: 14px !important;
+    }
+    .ql-container {
+        border-bottom-right-radius:4px;
+        border-bottom-left-radius:4px;
+        border: 0;
+    }
+    .ql-editor {
+        border-top: 1px solid #d9d9d9 ;
+    }
+    .ql-editor:hover {
+        border-color:  #1890ff;
+    }
+    .ql-editor:focus-within {
+        border-top: 1px solid #1890ff !important;
+        border-color: #1890ff !important;
+        outline: none;
+        box-shadow: 0 0 3px #1890ff;
+        -moz-box-shadow: 0 0 3px #1890ff;
+        -webkit-box-shadow: 0 0 3px #1890ff;
+    }
+    .ql-container:hover {
+        border-color:  #1890ff;
+    }
+    .ql-container:focus-within {
+        border-color: #1890ff !important;
+        outline: none;
+        box-shadow: 0 0 3px #1890ff;
+        -moz-box-shadow: 0 0 3px #1890ff;
+        -webkit-box-shadow: 0 0 3px #1890ff;
+    }
+    .ql-toolbar.ql-snow  + .ql-container.ql-snow{
+        border-top: 0;
+    }
+
+
+
+    .quill-in {
+        line-height: 0;
+        .ql-container {
+            font-size: 14px;
+        }
+    }
+
+    .quill-invalid {
+        line-height: 0;
+        .ql-container {
+            border-top: 1px solid red !important;
+            border-color: red !important;
+            font-size: 14px;
+        }
+        .ql-toolbar {
+            border-bottom: 0 !important;
+        }
+    }
+    .quill-focus {
+        line-height: 0;
+        .ql-container {
+            border-top: 1px solid #1890ff !important;
+            border-color: #1890ff !important;
+            outline: none;
+            box-shadow: 0 0 3px #1890ff;
+            -moz-box-shadow: 0 0 3px #1890ff;
+            -webkit-box-shadow: 0 0 3px #1890ff;
+    }
+        .ql-toolbar {
+            border-bottom: 0 !important;
+        }
+    }
+
+}
+
+
+//@at-root global because overlay
+.language-choice-item {
+
+    font-size: smaller;
+
+    i {
+        margin-right: 5px !important;   
+        font-size: smaller
+    }
+    
+}
+
+.selectbox {
+
+    li.ant-select-selection__choice {
+        background:$gray-blue;
+    }
+}
+
+
+.vselectbox {
+
+    .vselect {
+        margin-top:5px;
+        margin-bottom:5px;
+        line-height: normal;
+
+        :hover {
+            border-color: #40a9ff;
+         }
+    }
+
+    .vselect__menu {
+
+        .vselect__option {
+            
+            &:hover {
+                background-color: #e6f7ff;
+            }
+         }
+
+         .vselect__option--is-selected {
+            background-color: #fafafa;
+            color: $gray-3;
+            font-weight: bolder  
+
+         }
+
+
+    }
+
+     .vselect__control {
+         min-height:32px;
+         height:32px;
+
+         .vselect__placeholder {
+             color:#bfbfbf;
+             margin-left:6px;
+             
+         }
+         
+         .vselect__value-container {
+             padding-left:4px;
+         }
+
+         
+         &.vselect__control--is-focused {
+
+            border-color: #1890ff;
+            -webkit-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+            box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+
+         }
+    }
+
+    .vselect__single-value {
+
+        padding-left:5px;
+        color:$gray-3;
+
+        
+    }
+
+
+    .vselect__multi-value {
+
+        background-color:$gray-blue;
+        height:22px;
+
+        .vselect__multi-value__label {
+            font-size: 14px;
+            color:$gray-3;
+            padding-left:9px;
+            line-height: 15px;
+        }
+
+
+        .vselect__multi-value__remove {
+            color:$gray-2;
+            padding-left:0px;
+            margin-bottom:1px;
+        }
+    }
+
+    &.vselectbox-single {
+    
+  
+        .vselect__clear-indicator,  .vselect__dropdown-indicator, .vselect__indicator-separator {
+            display:none;
+        }
+
+        &:hover {
+
+
+            .vselect__clear-indicator  {
+
+                display: block;
+
+                svg {
+        
+                    height:15px;
+                    width:15px;
+                }
+            }
+        }
+        
+    }
+
+    &.vselectbox-multi {
+
+        .vselect__indicators {
+            display:none
+        }
+    
+    }
+
+
+}
+
+.listbox {
+
+   display:flex; 
+   margin-top: 8px;
+   margin-bottom: 15px;
+
+
+    &.horizontal {
+
+        flex-direction: row-reverse;
+
+        .bar {
+   
+            flex-direction: column-reverse;
+            border-left: 1px solid #eeeeee;
+            margin-top:2px;
+            padding-left:10px;
+
+            .controls {
+                margin-bottom:auto;   
+ 
+                i {
+                    font-size: larger;
+                    color:$primary-color;
+                }
+            }
+            
+          
+        }
+
+        .items {
+
+            padding: 0 5px;    
+
+        }
+    }
+
+    &.vertical {
+
+        flex-direction: column;
+       
+       .bar {
+
+            flex-direction: row;
+            line-height: normal;      
+            padding:5px;  
+            border-top: 1px solid $gray-1;
+            border-bottom: 1px solid $gray-1;
+
+            .controls {
+                margin-left:auto;
+                
+                button {
+                    font-size:smaller;
+                    padding:0px 10px;
+                    height:25px;
+                }
+            }
+        }
+
+
+        .items {
+
+            padding: 0 5px;        
+        }
+    }
+
+    .bar {
+
+        display:flex;
+        align-items: center;
+
+        .controls {
+
+            button {
+                padding:0px;
+                border:none;
+            }
+        }
+
+       
+    }
+
+    .items {
+
+        flex-grow: 2;
+        overflow: auto;
+           
+
+        .empty {
+            text-align: center;
+            padding-top: 5px;
+            color:$gray-2;
+        }
+    }
+
+
+    
+
+
+
+
+
+
+    //  table list specifics
+
+    .ant-table-row {
+
+        // slimmer cells
+        td {
+            padding:10px 5px;
+            vertical-align: top;    // default is center
+        }
+
+
+        &:hover {
+            button {
+                background: transparent;
+                transition: all 0s, border 0s;
+            }
+        }
+
+    }
+
+    .tr.ant-table-row-hover:not(.ant-table-expanded-row):not(.ant-table-row-selected) > td, .ant-table-tbody > tr.ant-table-row-hover:not(.ant-table-expanded-row):not(.ant-table-row-selected) > td, .ant-table-tbody > tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected) > td {
+        background: $gray-light
+    }
+
+
+
+    .ant-table-thead {
+
+        th {
+            text-transform: capitalize;
+            background: white;
+            color:$gray-3;
+            font-weight: 400;
+            border-bottom: 1px solid $gray-1;
+            min-height:32px;
+            padding:5px;
+
+        }
+
+        .ant-table-column-sort{
+            background:white;
+        }
+
+
+        *::before { // no-background change on color
+            background: transparent !important;
+        }
+
+    }
+
+    
+    .table-controls-column {
+    
+        white-space: nowrap;    // stays on one line
+
+        .flex-controls {
+            display:flex;                
+            align-items: center;        // children are level
+            justify-content: flex-end;  // aligned to right
+        }
+
+    }
+}
+
+
+    .item {
+        padding:10px 0;
+        border-bottom: 1px solid $gray-1;
+        display:flex;                
+        align-items: center;        // children are level
+        justify-content: flex-end;  // aligned to right
+
+        &:hover {
+
+            background: $gray-light;
+
+            button {
+                background: transparent;
+                transition: all 0s, border 0s;
+            }
+        }
+       
+        
+    }
+
+
+    .item-content {
+        flex-grow: 2;
+        display:flex;
+   
+    }
+
+    .item-controls {
+
+        display:flex;
+        align-items:center;
+        margin-bottom: auto;   // always at the top of row, regardless of how tall sibling cells are.  
+      
+        i {   
+            margin-left: 8px;
+        }
+
+        button {
+            padding:0px;
+            height: 22px;
+            border:none;
+        }
+
+
+        .badges {
+
+            padding-left: 5px;
+            
+            .ant-tag {
+
+                color: white;
+                font-size:smaller;
+                font-variant:small-caps;
+     
+              
+
+                &.new {
+                    color: $success-color;
+                }
+
+                &.mod {
+                    color: $primary-color;
+                }
+
+                &.invalid {
+                    color: $error-color;
+                }
+
+                
+            }
+
+            .ant-tag:last-child {
+                margin-right:0px;
+            }
+        }
+    }

@@ -1,0 +1,403 @@
+
+@import 'apprise-frontend/variables.scss';
+
+$activeBorderSize: 5px;
+$background: white;
+$siderBackground: #001529;
+$pagesiderBackground: desaturate(lighten($siderBackground, 10%), 50%);
+$scaleIconWhenCollapsed : 1.1;
+$contentTransition: opacity ease-in-out .3s;
+$iconTransition: transform ease-in-out .3s;
+$iconSize: 18px;
+$siderSize: 320px;
+
+$ease-in-out : cubic-bezier(0.645, 0.045, 0.355, 1);
+
+.ant-avatar {
+
+  background: var(--app-color);
+
+}
+
+.sidebar {
+  .logo {
+    height: $bar-height;
+    color: $background;
+    background: var(--app-color);
+    display: flex;
+    align-items: center;  
+    padding: 25px;
+    z-index: 1;
+    top: 0px;
+    position: sticky;
+
+    i{
+      padding-left: 6px;
+      padding-right: 15px;
+      transition: $iconTransition;
+      transform: scale(1);
+      font-size: $iconSize;
+    }
+
+    .title{
+      font-size: large;
+      transition: opacity $ease-in-out .3s;
+      opacity: 1;
+    }
+  
+  }
+
+  .sidebar-content {
+    
+    display:flex;
+    color: $background;
+  
+
+    .iconbar {
+      
+      min-height: 100vh;
+
+      i {
+
+        font-size: $iconSize !important;
+        transition: $iconTransition;
+        transform: scale(1);
+      
+      }
+
+      .ant-menu-inline-collapsed {
+    
+        & > .ant-menu-item {
+
+            height: $bar-height ;
+
+            // center icon in item
+            display: flex;
+            justify-content: center;
+
+            & > a,div {   // route may be already active (plain <div>) or not (full <a> link)
+               
+              display: flex;
+               
+                // fills the background with pagesider color, invisible until active
+                &:before{
+                    transition: opacity $ease-in-out .3s;
+                    opacity: 0;
+                    background: $pagesiderBackground;
+                }
+
+                i{
+                    // shows blue circle overlay, invisible until active
+                    &:before{
+                        z-index: -1;  // overlay
+                        position: absolute;
+                        display: block;
+                        content: "";
+                        width: 28px;
+                        height: 28px;
+                        background: var(--app-color);
+                        border-radius: 15px;
+                        top: 50%;
+                        left: 50%;
+                        margin-left: -12px;
+                        margin-top: -13px;
+                        // smaller until active
+                        transform: scale(.5);
+                        opacity: 0;
+                        transition: cubic-bezier(0.02, 1.87, 0.78, 0.85) .5s;
+                    }
+                }
+
+                // draws a blue border, invisible until active
+                &:after{
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    height: 100%;
+                    width: $activeBorderSize;
+                    background-color: var(--app-color);
+                    opacity:0;
+                    transition: opacity $ease-in-out .3s;
+                   
+                }
+
+                &.active{
+
+                    &:before{
+                        opacity: 1;
+                      }
+                    
+                    i {
+                        &:before{
+                          transform: scale(1);
+                          opacity: 1;
+                        }
+                    }
+
+                  &:after{
+                      opacity:1;
+                    }
+
+                    i{
+                        color: white;
+                    }
+                }
+            }
+
+            .anticon{
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                padding-left: $activeBorderSize;
+            }
+        }
+    }
+
+      .ant-menu-vertical {
+        .ant-menu-item{
+            margin: 0;
+        }
+      }
+    }
+
+    .pagesider {
+      
+      flex-grow:2;
+      text-align:right;
+      background:$pagesiderBackground;
+      transition: $contentTransition;
+      opacity:1;
+      min-width: 240px;
+      position: fixed;
+      left: 80px;
+      height: 100%;
+
+      padding:  0 15px 15px 15px;
+
+      .title {
+        font-size: 18pt;
+        padding: 15px 0;
+        font-weight: 300;
+      }
+
+      .ant-typography-danger {
+        color:#f84646 !important;           
+      }
+
+      .ant-btn{
+        background: transparent !important;
+        border: none;
+        font-weight: 400;
+        font-size: 92%;
+        padding-right: 0px;
+        color: #7793ad;
+        height: 24px;
+
+        &:hover{
+            color: white;
+        }
+
+        &:hover[disabled]{
+          color: #5b6a77;
+        }
+
+        &[disabled]{
+          color: #5b6a77;
+        }
+
+        // disables click animation
+        &:after{
+            display: none !important;
+        }
+      }
+
+      .ant-btn-primary {
+        margin-bottom: 30px !important;
+      }
+      
+      .ant-btn{
+            color: #97afc5; 
+            &:hover{
+                color:white;
+            }
+        }
+    
+  
+      
+ 
+    }
+
+  }
+
+  .ant-layout-sider {
+    height: 100%;
+  }
+
+  .ant-layout-sider-collapsed{
+    
+    .logo {
+    
+      
+
+        i{  transform: scale($scaleIconWhenCollapsed); }
+        .title{  
+            opacity: 0;
+            visibility: none; 
+          }
+    }
+
+    .iconbar {
+      i{  transform: scale($scaleIconWhenCollapsed); }
+    }
+
+    .pagesider {
+        opacity:0;
+        visibility: hidden; 
+    }
+
+
+}
+ 
+}
+
+
+.header{
+
+  &.ant-layout-header {
+
+      background: transparent;
+      height: auto;
+      line-height: normal;
+      padding: 0px 15px;
+      height: $bar-height;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      .ant-breadcrumb{
+          background: transparent;
+          width: 100%;
+      }
+
+
+ 
+  }
+
+  .ant-avatar.ant-dropdown-trigger{
+      cursor: pointer;
+  }
+
+
+}
+
+.user-menu-item{
+  font-weight: bold;
+  i{
+      margin-right: 5px;
+  }
+}
+
+
+.user-badge{
+ 
+  display: flex;
+
+  .details{
+      margin-left: 15px;
+  }
+
+  .username{
+      font-weight: bold;
+  }
+
+  .email{
+      font-size: x-small;
+  }
+
+  .logout{
+      margin-top: 10px;
+  }
+}
+
+
+settings-menu-item{
+  i{
+      margin-right: 5px;
+  }
+}
+
+.page {
+
+  min-height: 100vh;
+  background: $background;
+  overflow:auto;
+
+  h1.ant-typography {
+
+    font-weight: 200
+  }
+  
+  .page-topbar {
+
+    
+    .page-topbar-header {
+
+      height: $bar-height;
+      background:$gray-1;
+
+      padding: 15px 15px;
+
+      display: flex;
+     
+      h1 {
+        line-height: 0.85
+      }
+    }
+
+    .action-group {
+      margin-left:auto    // aligns self to right
+    }
+    
+    .page-topbar-tabs {
+    
+      height: $bar-height;
+      background:$gray-1;
+
+      padding: 0 15px;
+
+      display: flex;
+      align-items: center;
+    
+     
+
+      .tabs {
+        margin-right:auto;    // aligns self to left
+        
+        .ant-tabs-bar {
+          margin: 0;
+        }
+
+        .ant-tabs-nav .ant-tabs-tab-active {
+          color: $gray-3
+        }
+        .ant-tabs-ink-bar {
+          height: 3px;
+        }
+
+        .ant-tabs-tab {
+          color: $gray-2;
+          margin-right:5px;
+          padding: 23px 16px
+        }
+      }
+    }
+  }
+
+  .page-body  {
+    padding: 15px 15px;
+  }
+
+}

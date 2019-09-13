@@ -1,0 +1,127 @@
+@import '../variables.scss';
+@import '../../../node_modules/material-design-icons/iconfont/material-icons.css';
+
+.action-menu-item {
+    display:flex;
+    align-items:center;
+
+    .item-name {
+        flex-grow:2;
+        padding-right: 5px,
+    }
+}
+
+.table{
+    .filtered-virtualized-table{
+        margin-left: 0px;
+    }
+
+    .list-head{
+        .list-head-column{
+            font-weight: bold;
+
+            i{
+                color: $primary-color;
+                margin-left: 10px;
+            }
+        }
+    }
+
+    .ant-badge{
+        margin-left: 15px;
+    }
+
+    .ant-badge-count{
+        background-color: $primary-color;
+    }
+
+    .actions-col{
+        justify-content: flex-end;
+
+        & > span{
+            display: flex;
+            align-items: center;
+        }
+
+        &.list-head-column{
+            justify-content: center;
+        }
+    }
+}
+
+
+.virtualized-table-container{overflow:auto;z-index:0;position:relative}.virtualized-table-container .ReactVirtualized__Grid__innerScrollContainer{padding-bottom:100px}.list-head{display:flex;align-items:center;border-bottom:1px solid #eaeaea;width:100%;background:#fff;-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.list-head .list-head-column{flex:1;font-weight:400;font-size:9pt;height:100%;display:flex;align-items:center;padding:10px;text-transform:uppercase}.list-head .list-head-column i{color:#eaeaea}.list-head .list-head-column.sortable{cursor:pointer}.list-head .list-head-column.sortable:hover{background:#eaeaea}.virtualized-table-wrapper{border:none;display:flex;box-shadow:none}.virtualized-table-wrapper .ReactVirtualized__Grid{outline:none}.virtualized-table-wrapper .actions-col{text-align:right}.virtualized-table-wrapper .list-item{display:flex;align-items:center;border-bottom:1px solid #eaeaea;width:100%}.virtualized-table-wrapper .list-item .list-item-column{flex:1;position:relative;width:100%;height:100%;vertical-align:middle;display:flex;align-items:center;padding:10px}.virtualized-table-wrapper li,.virtualized-table-wrapper ul{list-style:none}.virtualized-table-wrapper ul{padding-left:0;margin-bottom:0;overflow:hidden}.virtualized-table-wrapper ul>li>.list-item>.side-checkbox{margin-left:10px}.virtualized-table-wrapper ul ul{padding-left:0}.virtualized-table-wrapper ul ul>li>.list-item>.side-checkbox{margin-left:20px}.virtualized-table-wrapper ul ul ul{padding-left:0}.virtualized-table-wrapper ul ul ul>li>.list-item>.side-checkbox{margin-left:30px}.virtualized-table-wrapper ul ul ul ul{padding-left:0}.virtualized-table-wrapper ul ul ul ul>li>.list-item>.side-checkbox{margin-left:40px}.virtualized-table-wrapper ul ul ul ul ul{padding-left:0}.virtualized-table-wrapper ul ul ul ul ul>li>.list-item>.side-checkbox{margin-left:50px}.virtualized-table-wrapper .virtualized-table{width:100%}.virtualized-table-wrapper .virtualized-table>div,.virtualized-table-wrapper .virtualized-table>div>div,.virtualized-table-wrapper .virtualized-table>div>div>div{width:100%!important;max-width:100%!important}
+.filtered-virtualized-table .selection-col .field.form-group.checkbox-wrapper{margin-bottom:0}.filtered-virtualized-table .selection-col.list-item-column .field.form-group.checkbox-wrapper{margin-left:10px}.filtered-virtualized-table .filtered-head{padding-top:15px;padding-bottom:15px;margin-bottom:1px;display:flex;justify-content:space-between;border-bottom:2px solid #eaeaea;background:#fff}.filtered-virtualized-table .filtered-head.fixed{position:fixed;top:0;z-index:1}.filtered-virtualized-table .filter-box{display:flex;align-items:center}.filtered-virtualized-table .filter-box .badge.counter{margin-left:10px}.filtered-virtualized-table .filter-box .badge.counter:empty{display:none}.filtered-virtualized-table .search-box{max-width:300px}.filtered-virtualized-table .search-box .form-group{margin-bottom:0}.filtered-virtualized-table .other-filters{flex:auto;text-align:right}.content.fixed .filtered-virtualized-table.window-scroll:before{content:"";display:block;height:74px}.content.fixed .filtered-virtualized-table.window-scroll .filtered-head{position:fixed;top:60px;z-index:2;border-bottom:none;box-shadow:1px 4px 8px 2px #fff;width:100%}.content.fixed .filtered-virtualized-table.window-scroll .filtered-head .other-filters{position:fixed;right:15px}.list-head-column.selection-col{position:relative;text-align:left}.list-head-column.selection-col .badge{position:absolute;top:1px;left:30px}.list-head-column.selection-col .checkbox{margin:0}
+.sticky-wrapper{position:relative}.sticky-wrapper.fixed>.sticky-content{position:fixed;z-index:1}.sticky-wrapper.bottom-fixed>.sticky-content{position:absolute;z-index:1}
+.custom-checkbox{position:relative;-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;height:25px;width:25px}.custom-checkbox input{display:none}.custom-checkbox i{position:absolute;left:0;transition:.1s}.custom-checkbox i.checked{color:#4caf50;opacity:0}.custom-checkbox i.unchecked{opacity:1;color:#eaeaea}.custom-checkbox.checked i.checked{opacity:1}.custom-checkbox.checked i.unchecked{opacity:0}.custom-checkbox.disabled i{color:#eaeaea}.custom-checkbox>label{display:flex;align-items:center;padding-left:30px}.custom-checkbox>label .children{flex:1 0 0}
+
+.table {
+
+    .ant-badge,.ant-input-search  {
+        z-index: 1
+    }
+}
+
+/*# sourceMappingURL=style.css.map */
+.badge {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    top: 4px !important;
+    left: 43px !important;
+}
+.badge-secondary {
+    color: #fff;
+    background-color: #6c757d;
+}
+
+.action-group {
+    .ant-btn-primary {
+        margin-right: 8px
+    }
+}
+
+.linked-col-anchor {
+    color: inherit;
+
+    i {
+        font-size: 12px;
+        color: $gray-2
+    }
+}
+
+
+
+.covering {  
+    height: 100vh;
+    width: 100vw;
+    margin: 0  
+  }
+    
+  .blackscreen {  
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: black;
+    overflow: auto;
+    }
+  
+    .bullseye {  
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+
+
+.ant-form-item-label label {
+    color: $gray-3
+}

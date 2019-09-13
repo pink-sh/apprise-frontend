@@ -1,0 +1,33 @@
+@import "../../variables.scss";
+
+.slideout {
+
+  .ant-drawer-header {
+
+    display: flex;
+    align-items:center;
+    height:64px;
+
+    .ant-drawer-title {
+      font-weight: 200;
+      text-transform: capitalize;
+
+      .ant-typography {
+        font-weight: 200;
+      }
+
+      i {
+        color: $app-color;
+        font-size: 20px;
+      }
+    }
+
+  }
+
+
+  .ant-drawer-body {
+    padding-left: 20px;
+    padding-right: 10px;
+  }
+
+}
